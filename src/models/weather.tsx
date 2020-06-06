@@ -10,6 +10,12 @@ export interface Weather {
   id?: number;
   name?: string;
   cod?: number;
+  rain?: Fall;
+  snow?: Fall;
+}
+
+export interface Fall {
+  "1h": number;
 }
 
 export interface Clouds {
@@ -27,6 +33,7 @@ export interface Main {
   humidity: number;
   temp_min: number;
   temp_max: number;
+  feels_like: number;
 }
 
 export interface Sys {

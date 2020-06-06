@@ -1,6 +1,7 @@
 import React from "react";
 import { Weather } from "../../models/weather";
 import { CardContent, Card, Typography } from "@material-ui/core";
+import { WeatherDetailsComponent } from "./WeatherDetailsComponent";
 
 interface WeatherInfoComponentProps {
   weather: Weather;
@@ -17,6 +18,9 @@ export const WeatherInfoComponent = (props: WeatherInfoComponentProps) => {
       {weather && weather.weather && (
         <Card>
           <CardContent>
+            <Typography component="div" variant="h6" display="inline">
+              {weather.name} ({weather.sys?.country})
+            </Typography>
             <Typography component="div" variant="h6">
               {weather.weather[0].description}
             </Typography>
@@ -27,6 +31,7 @@ export const WeatherInfoComponent = (props: WeatherInfoComponentProps) => {
               />
               {weather.main?.temp}&#8451;
             </Typography>
+            <WeatherDetailsComponent weather={weather} />
           </CardContent>
         </Card>
       )}

@@ -4,7 +4,6 @@ export async function api<T = object>(
 ): Promise<T> {
   return fetch(input, init)
     .then(async (response: Response) => {
-      console.log(response);
       return response.text().then((text) => {
         const data = text && JSON.parse(text);
         if (!response.ok) {
